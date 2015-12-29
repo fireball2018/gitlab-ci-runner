@@ -2,11 +2,13 @@
 FROM ubuntu:14.04
 
 RUN apt-get update -y
-RUN apt-get install curl git-core software-properties-common htop -y
+RUN apt-get install curl git-core software-properties-common htop build-essential -y
 RUN add-apt-repository ppa:fkrull/deadsnakes -y
 RUN curl -sSL https://get.docker.com/ | sh
+RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
 RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
 RUN apt-get install gitlab-ci-multi-runner -y
+RUN apt-get install nodejs -y
 RUN apt-get install python3.5 python3.5-dev libncurses5-dev python-pip python-dev -y
 RUN update-alternatives --install /usr/bin/python3 python3.5 /usr/bin/python3.5 0
 RUN pip install virtualenvwrapper
