@@ -9,6 +9,7 @@ RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-mu
 RUN apt-get install gitlab-ci-multi-runner -y
 RUN apt-get install python3.5 python3.5-dev libncurses5-dev python-pip python-dev -y
 RUN update-alternatives --install /usr/bin/python3 python3.5 /usr/bin/python3.5 0
+RUN pip install virtualenvwrapper
 RUN rm /etc/init/gitlab-runner.conf
 RUN echo "export TERM=dumb" >> ~/.bashrc
 
