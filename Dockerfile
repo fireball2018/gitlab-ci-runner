@@ -1,6 +1,8 @@
 # This image is used to create bleeding edge docker image and is not compatible with any other image
 FROM ubuntu:14.04
 
+RUN apt-get update -y
+RUN apt-get install curl git-core -y
 RUN curl -sSL https://get.docker.com/ | sh
 RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
 RUN apt-get install gitlab-ci-multi-runner -y
