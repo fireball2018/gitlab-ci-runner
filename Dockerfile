@@ -7,7 +7,9 @@ RUN add-apt-repository ppa:fkrull/deadsnakes -y
 RUN curl -sSL https://get.docker.com/ | sh
 RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
 RUN apt-get install gitlab-ci-multi-runner -y
-RUN apt-get install python3.5 python3.5-dev python-pip python-dev -y
+RUN apt-get install python3.5 python3.5-dev libncurses5-dev python-pip python-dev -y
+RUN mv /usr/bin/python3 /usr/bin/python3-old
+RUN ln -s /usr/bin/python3.5 /usr/bin/python3
 RUN rm /etc/init/gitlab-runner.conf
 
 # Preserve runner's data
