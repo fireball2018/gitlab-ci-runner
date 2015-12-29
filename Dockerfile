@@ -2,7 +2,8 @@
 FROM ubuntu:14.04
 
 RUN apt-get update -y
-RUN apt-get install curl git-core -y
+RUN apt-get install curl git-core software-properties-common -y
+RUN add-apt-repository ppa:fkrull/deadsnakes -y
 RUN curl -sSL https://get.docker.com/ | sh
 RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
 RUN apt-get install gitlab-ci-multi-runner -y
