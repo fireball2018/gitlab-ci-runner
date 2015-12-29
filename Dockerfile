@@ -11,8 +11,8 @@ RUN apt-get install python3.5 python3.5-dev libncurses5-dev python-pip python-de
 RUN update-alternatives --install /usr/bin/python3 python3.5 /usr/bin/python3.5 0
 RUN pip install virtualenvwrapper
 RUN rm /etc/init/gitlab-runner.conf
-# RUN echo "export TERM=xterm" >> ~/.bashrc
-# RUN echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.bashrc
+RUN echo "export TERM=xterm" >> ~/.bashrc
+RUN echo "export DEBIAN_FRONTEND=noninteractive" >> ~/.bashrc
 
 # Preserve runner's data
 VOLUME ["/etc/gitlab-runner", "/srv/gitlab-runner"]
