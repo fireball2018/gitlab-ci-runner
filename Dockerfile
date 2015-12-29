@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 
 RUN curl -sSL https://get.docker.com/ | sh
 RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash
-RUN apt-get install gitlab-ci-multi-runner
+RUN apt-get install gitlab-ci-multi-runner -y
 
 # Preserve runner's data
 VOLUME ["/etc/gitlab-runner", "/srv/gitlab-runner"]
